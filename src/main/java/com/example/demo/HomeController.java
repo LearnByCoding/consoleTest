@@ -22,15 +22,15 @@ public class HomeController {
         return gamestate.toString();
     }
 
-    @PostMapping ("/datas")
+    @PostMapping ("/data")
     public @ResponseBody String showTests(@RequestParam String command){
         command = "processing..." + command + "...has been processed.";
         return command;
     }
 
-    @PostMapping ("/command")
+    @PostMapping ("/datas")
     public @ResponseBody String processCommands(@RequestParam String command){
-        command = "processing..." + command + "...has been processed.";
+        command = Command.process(command);
         return command;
     }
 }
